@@ -1,0 +1,81 @@
+.wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    min-width: 100px;
+    padding: 9px 16px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid transparent;
+    user-select: none;
+    color: black;
+
+    //Có nút kề nhau, nút đằng sau mới ăn
+    // + .wrapper {
+    //     margin-left: 8px;
+    // }
+
+    + .wrapper {
+        margin-left: 8px;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+//Button Type
+.primary {
+    background-color: red;
+    color: white;
+
+    &:hover {
+        background-color: gray;
+    }
+}
+
+.outline {
+    color: red;
+    border-color: currentColor;
+
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.text {
+    border: 1.5px solid rgba(22, 24, 35, 0.2);
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.04);
+    }
+}
+
+.rounded {
+    border-radius: 999px;
+}
+
+//Button size
+.small {
+    padding: 4px 16px;
+}
+
+.large {
+    min-width: 140px;
+    padding: 14px 16px;
+}
+
+//Icon && Title
+.icon + .title,
+.title + .icon {
+    margin-left: 7px;
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}

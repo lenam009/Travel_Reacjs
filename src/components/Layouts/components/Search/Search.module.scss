@@ -1,0 +1,115 @@
+.search-result {
+    width: 450px;
+}
+
+.search-title {
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 5px 12px;
+}
+
+.header-item-search {
+    background-color: rgba(22, 24, 35, 0.06);
+    width: 450px;
+    height: 46px;
+    border-radius: var(--search-border-radius);
+    padding-left: 16px;
+    display: flex;
+    border: 1px solid transparent;
+    position: relative;
+
+    .input-search {
+        height: 100%;
+        border: none;
+        color: rgba(22, 24, 35, 1);
+        font-size: 1.6rem;
+        outline: none;
+        background-color: transparent;
+        flex: 1;
+
+        &:not(:placeholder-shown) ~ .search-btn,
+        &:hover ~ .search-btn {
+            color: rgba(22, 24, 35, 0.75);
+        }
+    }
+
+    .clear-btn {
+        border: none;
+        margin-right: 21px;
+        margin-left: 20px;
+    }
+
+    .clear-btn:hover {
+        cursor: pointer;
+    }
+
+    .spinner {
+        position: absolute;
+        top: 0px;
+        right: 73px;
+        transform: translateY(100%);
+    }
+
+    .loading {
+        animation: spinner 1s linear infinite;
+    }
+
+    @keyframes spinner {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .search-btn {
+        position: relative;
+        width: 52px;
+        color: rgba(22, 24, 35, 0.34);
+        height: 100%;
+        font-size: 1.8rem;
+        border: none;
+        border-top-right-radius: var(--search-border-radius);
+        border-bottom-right-radius: var(--search-border-radius);
+
+        &:hover {
+            color: rgba(22, 24, 35, 0.75);
+            background-color: rgba(24, 24, 35, 0.03);
+            cursor: pointer;
+        }
+
+        &::after {
+            position: absolute;
+            display: block;
+            content: '';
+            top: 0;
+            border-left: 1px solid black;
+            height: 50%;
+            transform: translateY(50%);
+        }
+    }
+
+    &:focus-within {
+        border: 1.5px solid rgba(22, 24, 35, 0.2);
+    }
+}
+
+//Arrow
+// .arrow,
+// .arrow::before {
+//     background-color: rgb(37, 37, 37);
+//     top: -3px;
+//     position: absolute;
+//     width: 10px;
+//     height: 10px;
+// }
+// .arrow {
+//     visibility: hidden;
+// }
+// .arrow::before {
+//     visibility: visible;
+//     content: '';
+//     transform: rotate(45deg);
+// }

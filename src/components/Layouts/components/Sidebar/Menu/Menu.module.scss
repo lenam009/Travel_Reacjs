@@ -1,0 +1,42 @@
+// Menu
+.menu {
+}
+
+// Menu Item
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    color: rgba(22, 24, 35, 1);
+    //màu sẽ chuyển từ trong suốt sang background-color trong vòng 200ms
+    transition: background-color ease-in-out 200ms;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    &.active {
+        color: red;
+
+        // .icon {
+        //     display: none;
+        // }
+
+        // .icon-active {
+        //     display: inline-block;
+        // }
+    }
+
+    .title {
+        font-family: 'IBM Plex Sans', TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        margin-left: 8px;
+    }
+}
+
+.icon-active {
+    display: none;
+}
