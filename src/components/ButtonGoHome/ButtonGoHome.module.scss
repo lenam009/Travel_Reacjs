@@ -1,0 +1,15 @@
+.btn-upToHome {
+    // position: absolute;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+.btn-icon-upToHome {
+    opacity: 0.1;
+    font-size: 4rem;
+    padding: 16px;
+    &:hover {
+        cursor: pointer;
+        opacity: 1;
+    }
+}

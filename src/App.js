@@ -8,7 +8,7 @@ import config from './config';
 
 function App() {
     return (
-        <Router>
+        <Router basename={window.location.pathname || ''}>
             <div className="App">
                 <Routes>
                     <Route
