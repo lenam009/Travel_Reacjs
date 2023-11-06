@@ -132,7 +132,7 @@ function Header() {
                     </div>
                 ) : (
                     <div className={cx('header-item-action-require-login')}>
-                        -<Button primary>Đăng nhập</Button>
+                        <Button primary>Đăng nhập</Button>
                         <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
