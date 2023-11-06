@@ -47,12 +47,7 @@ function Menu({ children, items = [], onChange = defaultFunction, hideOnClick = 
         >
             <PopperWrapper className={cx('menu-popper')}>
                 {history.length > 1 && (
-                    <Header
-                        onBack={() =>
-                            setHistory((prev) => prev.slice(0, prev.length - 1))
-                        }
-                        title={current.Title}
-                    />
+                    <Header onBack={() => setHistory((prev) => prev.slice(0, prev.length - 1))} title={current.Title} />
                 )}
                 <div className={cx('menu-body')}> {renderItems()}</div>
             </PopperWrapper>
@@ -69,7 +64,7 @@ function Menu({ children, items = [], onChange = defaultFunction, hideOnClick = 
             offset={[10, 10]}
             // visible
             onHide={handleResetToFirstPage}
-            hideOnClick={hideOnClick}
+            hideOnClick={false}
             delay={[0, 700]}
             placement="bottom-end"
             render={renderResult}
