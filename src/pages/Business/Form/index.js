@@ -18,6 +18,8 @@ function Form() {
     const [showForm, setShowForm] = useState(false);
     const [dialogList, setDialogList] = useState([]);
 
+    const [lastDialog] = dialogList.slice(-1);
+
     const inputNameRef = useRef();
     const inputFormRef = useRef();
 
@@ -111,6 +113,12 @@ function Form() {
                     </div>
                     <div className={cx('form-item')}>
                         <div className={cx('form-btn')}>
+                            <span
+                                className={cx('errorInput')}
+                                style={{ visibility: lastDialog === false ? 'visible' : 'hidden' }}
+                            >
+                                Bạn chưa điền đủ thông tin !!!
+                            </span>
                             <button onClick={handleAddButtonClick} className={cx('btn-add')}>
                                 Thêm
                             </button>
@@ -126,7 +134,7 @@ function Form() {
             </div>
 
             <div className={cx('inner-show', showForm && 'hidden')}>
-                <div className={cx('form-btn')}>
+                <div className={cx('form-btn')} style={{ justifyContent: 'end' }}>
                     <button onClick={handleShowFormButtonClick} className={cx('btn-add-show')}>
                         Thêm địa điểm
                     </button>
