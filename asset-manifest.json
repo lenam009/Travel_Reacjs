@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/Project/static/css/main.7a63c06a.css",
-    "main.js": "/Project/static/js/main.bfa8ce53.js",
+    "main.css": "/Project/static/css/main.549fb50c.css",
+    "main.js": "/Project/static/js/main.2ec903a9.js",
     "static/js/787.fe00223f.chunk.js": "/Project/static/js/787.fe00223f.chunk.js",
     "static/media/doraemon.jpg": "/Project/static/media/doraemon.c13050913602f76e73e1.jpg",
     "static/media/TikTokFont-Semibold.woff2": "/Project/static/media/TikTokFont-Semibold.0a3262809350126554ad.woff2",
     "static/media/TikTokFont-Regular.woff2": "/Project/static/media/TikTokFont-Regular.0ca75da985ad7821cbde.woff2",
-    "static/media/logo.svg": "/Project/static/media/logo.61d8a64459e1e8411f2e2f1e992fe30a.svg",
     "static/media/slick.svg": "/Project/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/Project/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/Project/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/Project/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Project/index.html",
-    "main.7a63c06a.css.map": "/Project/static/css/main.7a63c06a.css.map",
-    "main.bfa8ce53.js.map": "/Project/static/js/main.bfa8ce53.js.map",
+    "main.549fb50c.css.map": "/Project/static/css/main.549fb50c.css.map",
+    "main.2ec903a9.js.map": "/Project/static/js/main.2ec903a9.js.map",
     "787.fe00223f.chunk.js.map": "/Project/static/js/787.fe00223f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a63c06a.css",
-    "static/js/main.bfa8ce53.js"
+    "static/css/main.549fb50c.css",
+    "static/js/main.2ec903a9.js"
   ]
 }
