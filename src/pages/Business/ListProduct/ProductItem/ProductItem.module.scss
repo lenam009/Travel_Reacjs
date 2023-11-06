@@ -1,5 +1,4 @@
 .product-item {
-    // background-color: orange;
     border-radius: 8px;
     margin-bottom: 24px;
     padding-bottom: 12px;
@@ -51,7 +50,6 @@
 
 @media only screen and (max-width: 739px) {
     .product-item {
-        margin-bottom: 16px;
         padding-bottom: 4px;
         height: 400px;
     }
