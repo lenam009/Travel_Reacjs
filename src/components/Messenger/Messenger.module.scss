@@ -1,0 +1,53 @@
+.wrapper {
+    // position: fixed;
+    width: 165px;
+    box-shadow: 0px 0px 5px rgba(22, 24, 35, 0.4);
+    padding: 12px 0px;
+    border-radius: 12px;
+    background-color: white;
+    font-size: 1.5rem;
+    user-select: none;
+    text-align: center;
+    animation: appearDialog ease-in-out 0.3s;
+}
+.animation-appear {
+    animation: appearDialog ease-in-out 0.3s;
+}
+
+.animation-disappear {
+    animation: disappearDialog ease 1s 4s;
+}
+
+@keyframes appearDialog {
+    from {
+        transform: translateX(100%);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes disappearDialog {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.success,
+.fail {
+    color: white;
+}
+
+.success {
+    background-color: #20c997;
+    opacity: 0.9;
+}
+
+.fail {
+    background-color: #dc3545;
+}

@@ -96,20 +96,19 @@
     }
 }
 
-//Arrow
-// .arrow,
-// .arrow::before {
-//     background-color: rgb(37, 37, 37);
-//     top: -3px;
-//     position: absolute;
-//     width: 10px;
-//     height: 10px;
-// }
-// .arrow {
-//     visibility: hidden;
-// }
-// .arrow::before {
-//     visibility: visible;
-//     content: '';
-//     transform: rotate(45deg);
-// }
+@media only screen and (max-width: 739px) {
+    .header-item-search {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+    .header-item-search {
+        width: 250px;
+    }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1239px) {
+    .header-item-search {
+        width: 350px;
+    }
+}

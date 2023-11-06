@@ -1,14 +1,14 @@
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 
 import Home from './pages/Home';
-import Following from './pages/Following';
+import Business from './pages/Business';
 import DefaultLayout from './components/Layouts/DefaultLayout';
 import HeaderOnly from './components/Layouts/HeaderOnly';
 import config from './config';
 
 function App() {
     return (
-        <Router basename={window.location.pathname || ''}>
+        <Router basename={process.env.PUBLIC_URL}>
             <div className="App">
                 <Routes>
                     <Route
@@ -21,10 +21,10 @@ function App() {
                     />
 
                     <Route
-                        path={config.routes.following}
+                        path={config.routes.business}
                         element={
                             <DefaultLayout>
-                                <Following />
+                                <Business />
                             </DefaultLayout>
                         }
                     />

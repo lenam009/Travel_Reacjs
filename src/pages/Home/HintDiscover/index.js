@@ -1,5 +1,9 @@
 import Slick from '~/components/Slick';
 import HintItem from './HintItem';
+import styles from './HintItem/HintItem.module.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 const HINT_ITEM = [
     {
@@ -38,19 +42,12 @@ function HintDiscover() {
     return (
         <div style={{ marginTop: '52px' }}>
             <h1 style={{ fontSize: '2.4rem' }}>Gợi ý khám phá </h1>
-            <p style={{ marginTop: '12px' }}>
-                Những địa điểm thường đến mà Luxstravel gợi ý dành cho bạn
-            </p>
+            <p style={{ marginTop: '12px' }}>Những địa điểm thường đến mà Luxstravel gợi ý dành cho bạn</p>
 
-            <div>
+            <div className={cx('wrapper-list')}>
                 <Slick slidesToShow={3} arrows={true}>
                     {HINT_ITEM.map((x, index) => (
-                        <HintItem
-                            key={index}
-                            title={x.title}
-                            desc={x.desc}
-                            image={x.src}
-                        />
+                        <HintItem key={index} title={x.title} desc={x.desc} image={x.src} />
                     ))}
                 </Slick>
             </div>

@@ -3,7 +3,7 @@
 :root {
     --danger: red;
     --layout-header-height: 60px;
-    --width-layout: 85%;
+    --width-layout: 1200px;
 }
 
 * {
@@ -85,9 +85,26 @@ body {
 
 .slick-next {
     margin-right: 41px;
-    z-index: 1;
 }
 .slick-prev {
     margin-left: 0px;
-    z-index: 1;
+}
+
+@media only screen and (max-width: 739px) {
+    :root {
+        --width-layout: 99%;
+        --layout-header-height: 50px;
+    }
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+    :root {
+        --width-layout: 644px;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1239px) {
+    :root {
+        --width-layout: 984px;
+    }
 }

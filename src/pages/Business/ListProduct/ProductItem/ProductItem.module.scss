@@ -1,0 +1,96 @@
+.product-item {
+    // background-color: orange;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border: 1px solid rgba(22, 24, 35, 0.1);
+    height: 550px;
+    position: relative;
+
+    &:hover {
+        box-shadow: 0px 0px 10px rgba(22, 24, 35, 0.5);
+    }
+}
+
+.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px;
+    border-top-right-radius: 8px;
+    color: rgb(255, 64, 0);
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(255, 64, 0);
+        color: white;
+    }
+}
+
+.image {
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+    object-fit: cover;
+    height: 350px;
+}
+
+.name,
+.desc {
+    text-align: justify;
+    padding: 4px 8px;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.desc {
+    font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 739px) {
+    .product-item {
+        margin-bottom: 16px;
+        padding-bottom: 4px;
+        height: 400px;
+    }
+    .image {
+        height: 250px;
+    }
+    .name,
+    .desc {
+        padding: 2px 8px;
+    }
+}
+
+@media only screen and (max-width: 739px) {
+    .icon {
+        background-color: rgb(255, 64, 0);
+        color: white;
+    }
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+    .product-item {
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+        height: 450px;
+    }
+    .icon {
+        color: white;
+        background-color: rgb(255, 64, 0);
+    }
+    .image {
+        height: 270px;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1239px) {
+    .product-item {
+        height: 480px;
+    }
+    .image {
+        height: 300px;
+    }
+}

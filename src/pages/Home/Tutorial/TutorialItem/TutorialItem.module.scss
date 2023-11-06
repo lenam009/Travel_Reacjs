@@ -10,3 +10,9 @@
     height: 230px;
     border-radius: 5px;
 }
+
+@media only screen and (max-width: 739px) {
+    .wrapper {
+        padding-right: 0;
+    }
+}

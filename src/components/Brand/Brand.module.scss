@@ -2,9 +2,15 @@
     display: flex;
     width: 60px;
     border: none;
+    margin-left: -8px;
 }
 
 .image {
     width: 100%;
     border: none;
+}
+
+@media only screen and (max-width: 739px) {
+    .logo-link {
+    }
 }

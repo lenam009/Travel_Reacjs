@@ -22,7 +22,7 @@ function ButtonGoHome() {
     return (
         <div className={cx('btn-upToHome')}>
             <FontAwesomeIcon
-                onClick={() => window.scrollTo(0, 0)}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className={cx('btn-icon-upToHome')}
                 style={{ display: stateIsHome ? 'none' : 'block' }}
                 icon={faCircleUp}

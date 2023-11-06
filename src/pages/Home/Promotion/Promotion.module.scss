@@ -11,3 +11,9 @@
     padding-right: 4px;
     border-radius: 8px;
 }
+
+@media only screen and (max-width: 739px) {
+    .img {
+        padding-right: 0px;
+    }
+}

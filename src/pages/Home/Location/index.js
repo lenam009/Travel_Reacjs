@@ -5,6 +5,7 @@ import Slick from '~/components/Slick';
 
 import config from '~/config';
 import LocationItem from './LocationItem';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -57,8 +58,7 @@ function Location() {
             <div>
                 <h1>Chào mừng đến với Luxtravel!</h1>
                 <p style={{ marginTop: '12px' }}>
-                    Đặt chỗ ở, homestay, cho thuê xe, trải nghiệm và nhiều hơn nữa trên
-                    Luxstay
+                    Đặt chỗ ở, homestay, cho thuê xe, trải nghiệm và nhiều hơn nữa trên Luxstay
                 </p>
                 <p>
                     <Link to={config.routes.home}>
@@ -74,24 +74,12 @@ function Location() {
 
             <div style={{ marginTop: '50px' }}>
                 <h1 style={{ fontSize: '2.4rem' }}>Địa điểm nổi bật</h1>
-                <p style={{ marginTop: '12px' }}>
-                    Cùng Luxstay bắt đầu chuyến hành trình chinh phục thế giới của bạn
-                </p>
+                <p style={{ marginTop: '12px' }}>Cùng Luxstay bắt đầu chuyến hành trình chinh phục thế giới của bạn</p>
 
                 <div className={cx('wrapper-location')}>
-                    <Slick
-                        dots={true}
-                        autoplaySpeed={5000}
-                        arrows={true}
-                        slidesToShow={5}
-                    >
+                    <Slick dots={true} autoplaySpeed={5000} arrows={true} slidesToShow={5}>
                         {LOCATION_ITEM.map((x, index) => (
-                            <LocationItem
-                                image={x.image}
-                                name={x.name}
-                                capacity={x.capacity}
-                                key={index}
-                            />
+                            <LocationItem image={x.image} name={x.name} capacity={x.capacity} key={index} />
                         ))}
                     </Slick>
                 </div>

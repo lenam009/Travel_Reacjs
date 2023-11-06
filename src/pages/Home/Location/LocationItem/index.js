@@ -9,7 +9,7 @@ function LocationItem({
     capacity,
 }) {
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper')} id="wrapper-location-item">
             <img className={cx('img')} alt="" src={image} />
             <div className={cx('content')}>
                 <h1 className={cx('name-city')}>{name}</h1>

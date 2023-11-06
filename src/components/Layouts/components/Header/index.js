@@ -12,7 +12,7 @@ import {
     faQuestion,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import { faComment, faPaperPlane, faEnvelope, faKeyboard } from '@fortawesome/free-regular-svg-icons';
+import { faComment, faPaperPlane, faEnvelope, faKeyboard, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -69,11 +69,15 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faQuestion} />,
         Title: 'Feedback',
-        to: '/feedback',
     },
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
         Title: 'Keyboard shortcuts',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faPenToSquare} />,
+        Title: 'Edit Product',
+        to: config.routes.business,
     },
 ];
 
