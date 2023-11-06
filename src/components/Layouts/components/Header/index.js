@@ -1,30 +1,14 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faCircleXmark,
-    faSpinner,
-    faMagnifyingGlass,
-    faPlus,
-    faPerson,
-    faEllipsisVertical,
-    faLanguage,
-    faQuestion,
-    faSignOut,
-} from '@fortawesome/free-solid-svg-icons';
-import { faComment, faPaperPlane, faEnvelope, faKeyboard, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
-import HeadlessTippy from '@tippyjs/react/headless';
+import { faPlus, faEllipsisVertical, faLanguage, faQuestion, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faKeyboard, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
-import images from '../../../../assets/images';
-import { default as PopperWrapper } from '../../../Popper/Wrapper';
-import AccountItem from '../../../AccountItem';
-import Button from '../../../Button';
-import Menu from '../../../Popper/Menu';
-import { MailIcon, UploadIcon } from '../../../Icons';
+import Button from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
+import { MailIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
 import config from '~/config';
@@ -148,10 +132,7 @@ function Header() {
                     </div>
                 ) : (
                     <div className={cx('header-item-action-require-login')}>
-                        {/* <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
-                            Tải lên
-                        </Button> */}
-                        <Button primary>Đăng nhập</Button>
+                        -<Button primary>Đăng nhập</Button>
                         <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />

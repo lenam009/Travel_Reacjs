@@ -41,9 +41,7 @@ function ProductItem({
     };
 
     const handleDeleteItem = () => {
-        // console.log(id, name, 'onClick');
         dispatch(listProductSLiceReducer.actions.deleteProduct(id));
-        // dispatch(informationProduct.actions.setCloseDialog(false));
     };
 
     return (

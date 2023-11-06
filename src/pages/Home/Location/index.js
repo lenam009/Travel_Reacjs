@@ -5,7 +5,6 @@ import Slick from '~/components/Slick';
 
 import config from '~/config';
 import LocationItem from './LocationItem';
-import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 

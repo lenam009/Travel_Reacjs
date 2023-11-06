@@ -1,29 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect, useRef } from 'react';
-import {
-    faCircleXmark,
-    faSpinner,
-    faMagnifyingGlass,
-    faPlus,
-    faPerson,
-    faEllipsisVertical,
-    faLanguage,
-    faQuestion,
-    faSignOut,
-} from '@fortawesome/free-solid-svg-icons';
-import { faComment, faPaperPlane, faEnvelope, faKeyboard } from '@fortawesome/free-regular-svg-icons';
+import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
-import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import classNames from 'classnames/bind';
-import PropTypes from 'prop-types';
 
 import styles from './Search.module.scss';
-import images from '../../../../assets/images';
-import { default as PopperWrapper } from '../../../Popper/Wrapper';
-import AccountItem from '../../../AccountItem';
-import { useDebounce } from '../../../../hooks';
-import * as searchServices from '../../../../services/searchServices';
+import { default as PopperWrapper } from '~/components/Popper/Wrapper';
+import AccountItem from '~/components/AccountItem';
+import { useDebounce } from '~/hooks';
+import * as searchServices from '~/services/searchServices';
 
 const cx = classNames.bind(styles);
 
@@ -35,7 +21,7 @@ function Search() {
     const [loading, setLoading] = useState(false);
     const inputRef = useRef();
 
-    const debouncedValue = useDebounce(searchValue, 5000);
+    const debouncedValue = useDebounce(searchValue, 500);
 
     useEffect(() => {
         if (!debouncedValue.trim()) {
@@ -113,6 +99,7 @@ function Search() {
                             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
                         </button>
                     )}
+
                     <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </button>

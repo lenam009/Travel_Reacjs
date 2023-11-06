@@ -14,7 +14,6 @@ function Messenger({ className, success = false, fail = false, ...props }) {
     useEffect(() => {
         const timeShow = setTimeout(() => {
             wrapperMessenger.current.classList.add(cx('animation-disappear'));
-            //wrapperMessenger.current.classList.remove(cx('animation-appear'));
 
             setTimeout(() => {
                 setIsShow(false);
