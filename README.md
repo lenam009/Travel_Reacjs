@@ -1,4 +1,4 @@
-- Website nói về địa điểm du lịch
+- Website gơi ý về địa điểm du lịch
 - Website đã được tích hợp Responsive
 
 ----- Gồm 2 chức năng:
