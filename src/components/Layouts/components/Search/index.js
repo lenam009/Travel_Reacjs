@@ -35,7 +35,7 @@ function Search() {
             return;
         }
 
-        //..............Nên giữ lại để tham khảo...................
+        //// ..............Nên giữ lại để tham khảo...................
         // const fetchApi = async () => {
         //     setLoading(true);
         //     const result = await searchServices.search(debouncedValue);
@@ -43,7 +43,7 @@ function Search() {
         //     setLoading(false);
         // };
         // fetchApi();
-        //..........................................................
+        //// ..........................................................
 
         dispatch(fetchSearchResults(debouncedValue));
         // eslint-disable-next-line react-hooks/exhaustive-deps
