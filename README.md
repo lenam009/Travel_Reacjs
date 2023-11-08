@@ -7,5 +7,6 @@
 
 ----- Các thư viện chính đã sử dụng:
 - Redux
-- Slick
 - Axios
+- Slick
+- Tippy
