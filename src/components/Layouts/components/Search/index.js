@@ -9,36 +9,45 @@ import styles from './Search.module.scss';
 import { default as PopperWrapper } from '~/components/Popper/Wrapper';
 import AccountItem from '~/components/AccountItem';
 import { useDebounce } from '~/hooks';
-import * as searchServices from '~/services/searchServices';
+
+import { useDispatch, useSelector } from 'react-redux';
+import searchReducer, { fetchSearchResults } from '~/components/Redux/SearchSlideReducer/SearchReducer';
+import { getLoadingSearchResult, getSearchResults } from '~/components/Redux/selector';
 
 const cx = classNames.bind(styles);
 
 function Search() {
     const [searchValue, setSearchValue] = useState('');
 
-    const [searchResult, setSearchResult] = useState([]);
+    // const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(false);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const inputRef = useRef();
+
+    const dispatch = useDispatch();
+
+    const loading = useSelector(getLoadingSearchResult);
+    const searchResult = useSelector(getSearchResults);
 
     const debouncedValue = useDebounce(searchValue, 500);
 
     useEffect(() => {
         if (!debouncedValue.trim()) {
-            setSearchResult([]);
+            dispatch(searchReducer.actions.setSearchResults([]));
             return;
         }
 
-        const fetchApi = async () => {
-            setLoading(true);
+        //..............Nên giữ lại để tham khảo...................
+        // const fetchApi = async () => {
+        //     setLoading(true);
+        //     const result = await searchServices.search(debouncedValue);
+        //     setSearchResult(result ?? []);
+        //     setLoading(false);
+        // };
+        // fetchApi();
 
-            const result = await searchServices.search(debouncedValue);
-            setSearchResult(result ?? []);
-
-            setLoading(false);
-        };
-
-        fetchApi();
+        dispatch(fetchSearchResults(debouncedValue));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [debouncedValue]);
 
     const handleClear = () => {

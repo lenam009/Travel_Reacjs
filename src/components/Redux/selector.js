@@ -9,3 +9,7 @@ export const getImage = (state) => state.informationProduct.image;
 export const getDesc = (state) => state.informationProduct.desc;
 
 export const getIdCloseDialog = (state) => state.informationProduct.idCloseDialog;
+
+export const getLoadingSearchResult = (state) => state.searchReducer.loading;
+
+export const getSearchResults = (state) => state.searchReducer.searchResult;
