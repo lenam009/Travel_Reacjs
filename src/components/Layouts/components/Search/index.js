@@ -19,9 +19,7 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchValue, setSearchValue] = useState('');
 
-    // const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(false);
-    // const [loading, setLoading] = useState(false);
     const inputRef = useRef();
 
     const dispatch = useDispatch();
@@ -45,6 +43,7 @@ function Search() {
         //     setLoading(false);
         // };
         // fetchApi();
+        //..........................................................
 
         dispatch(fetchSearchResults(debouncedValue));
         // eslint-disable-next-line react-hooks/exhaustive-deps
