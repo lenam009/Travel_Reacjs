@@ -34,4 +34,7 @@ const fetchSearchResults = createAsyncThunk('searchResult/fetchSearchResult', as
 });
 
 export default searchReducer;
+
 export { fetchSearchResults };
+
+export const { setSearchResults } = searchReducer.actions;

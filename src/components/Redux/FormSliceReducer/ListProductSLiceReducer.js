@@ -46,3 +46,5 @@ const listProductSLiceReducer = createSlice({
 });
 
 export default listProductSLiceReducer;
+
+export const { addProduct, deleteProduct } = listProductSLiceReducer.actions;

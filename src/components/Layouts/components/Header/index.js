@@ -87,9 +87,6 @@ function Header() {
             <div className={cx('header-inner')}>
                 <div className={cx('header-item-icon')}>
                     <Brand />
-                    {/* <Link to={config.routes.home} className={cx('logo-link')}>
-                    <img className={cx('icon-tiktok')} src={images.logo} alt="error" />
-                        </Link> */}
                 </div>
 
                 <Search />

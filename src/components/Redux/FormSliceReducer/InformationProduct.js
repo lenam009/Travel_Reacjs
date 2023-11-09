@@ -28,3 +28,5 @@ const informationProduct = createSlice({
 });
 
 export default informationProduct;
+
+export const { setName, setImage, setDesc, setCloseDialog, setIdCloseDialog } = informationProduct.actions;
