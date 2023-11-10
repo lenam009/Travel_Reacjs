@@ -32,7 +32,7 @@ const searchReducer = createSlice({
 const fetchSearchResults = createAsyncThunk('searchResult/fetchSearchResult', async (d) => {
     // const data = await searchServices.search(d);
     const data = await userApi.getByName(d);
-    return data.data;
+    return data;
 });
 
 export default searchReducer;
