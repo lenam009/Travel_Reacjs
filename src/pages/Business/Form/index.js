@@ -76,54 +76,56 @@ function Form() {
                     <button onClick={handleCloseButtonClick} className={cx('btn-close')}>
                         <FontAwesomeIcon className={cx('icon-close')} icon={faXmark} />
                     </button>
-                    <div className={cx('form-item')}>
-                        <label className={cx('name')} htmlFor="name">
-                            Tên địa điểm
-                        </label>
-                        <input
-                            ref={inputNameRef}
-                            value={name}
-                            id="name"
-                            className={cx('input-text')}
-                            onChange={(e) => dispatch(informationProduct.actions.setName(e.target.value))}
-                        />
-                    </div>
-                    <div className={cx('form-item')}>
-                        <label className={cx('image')} htmlFor="image">
-                            Đường dẫn hình ảnh
-                        </label>
-                        <input
-                            value={image}
-                            id="image"
-                            className={cx('input-image')}
-                            onChange={(e) => dispatch(informationProduct.actions.setImage(e.target.value))}
-                        />
-                    </div>
-                    <div className={cx('form-item')}>
-                        <label className={cx('desc')} htmlFor="desc">
-                            Mô tả
-                        </label>
-                        <textarea
-                            maxLength={250}
-                            id="desc"
-                            className={cx('input-desc')}
-                            onChange={(e) => dispatch(informationProduct.actions.setDesc(e.target.value))}
-                            value={desc}
-                        ></textarea>
-                    </div>
-                    <div className={cx('form-item')}>
-                        <div className={cx('form-btn')}>
-                            <span
-                                className={cx('errorInput')}
-                                style={{ visibility: lastDialog === false ? 'visible' : 'hidden' }}
-                            >
-                                Bạn chưa điền đủ thông tin !!!
-                            </span>
-                            <button onClick={handleAddButtonClick} className={cx('btn-add')}>
-                                Thêm
-                            </button>
+                    <form action="#">
+                        <div className={cx('form-item')}>
+                            <label className={cx('name')} htmlFor="name">
+                                Tên địa điểm
+                            </label>
+                            <input
+                                ref={inputNameRef}
+                                value={name}
+                                id="name"
+                                className={cx('input-text')}
+                                onChange={(e) => dispatch(informationProduct.actions.setName(e.target.value))}
+                            />
                         </div>
-                    </div>
+                        <div className={cx('form-item')}>
+                            <label className={cx('image')} htmlFor="image">
+                                Đường dẫn hình ảnh
+                            </label>
+                            <input
+                                value={image}
+                                id="image"
+                                className={cx('input-image')}
+                                onChange={(e) => dispatch(informationProduct.actions.setImage(e.target.value))}
+                            />
+                        </div>
+                        <div className={cx('form-item')}>
+                            <label className={cx('desc')} htmlFor="desc">
+                                Mô tả
+                            </label>
+                            <textarea
+                                maxLength={250}
+                                id="desc"
+                                className={cx('input-desc')}
+                                onChange={(e) => dispatch(informationProduct.actions.setDesc(e.target.value))}
+                                value={desc}
+                            ></textarea>
+                        </div>
+                        <div className={cx('form-item')}>
+                            <div className={cx('form-btn')}>
+                                <span
+                                    className={cx('errorInput')}
+                                    style={{ visibility: lastDialog === false ? 'visible' : 'hidden' }}
+                                >
+                                    Bạn chưa điền đủ thông tin !!!
+                                </span>
+                                <button onClick={handleAddButtonClick} className={cx('btn-add')}>
+                                    Thêm
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <div className={cx('inner-dialog')}>
