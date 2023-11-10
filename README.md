@@ -6,7 +6,7 @@
 - Trang edit thêm, xóa địa điểm du lịch
 
 ----- Các thư viện chính đã sử dụng:
-- Redux
+- Redux (redux thunk, redux toolkit)
 - Axios
 - Slick
 - Tippy
