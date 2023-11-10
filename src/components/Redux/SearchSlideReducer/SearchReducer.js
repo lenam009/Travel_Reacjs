@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import * as searchServices from '~/services/searchServices';
+import userApi from '~/api/userApi';
 
 const searchReducer = createSlice({
     name: 'searchResult',
@@ -18,7 +19,7 @@ const searchReducer = createSlice({
             state.loading = true;
         });
         builder.addCase(fetchSearchResults.fulfilled, (state, action) => {
-            state.searchResult = action.payload;
+            state.searchResult = action.payload.data;
             state.loading = false;
         });
         builder.addCase(fetchSearchResults.rejected, (state, action) => {
@@ -29,8 +30,9 @@ const searchReducer = createSlice({
 });
 
 const fetchSearchResults = createAsyncThunk('searchResult/fetchSearchResult', async (d) => {
-    const data = await searchServices.search(d);
-    return data;
+    // const data = await searchServices.search(d);
+    const data = await userApi.getByName(d);
+    return data.data;
 });
 
 export default searchReducer;
