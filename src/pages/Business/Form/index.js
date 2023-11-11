@@ -157,7 +157,7 @@ function Form() {
             </div>
 
             <div className={cx('inner-show', showForm && 'hidden')}>
-                <div className={cx('form-btn')} style={{ justifyContent: 'end' }}>
+                <div className={cx('form-btn')}>
                     <button onClick={handleShowFormButtonClick} className={cx('btn-add-show')}>
                         Thêm địa điểm
                     </button>
