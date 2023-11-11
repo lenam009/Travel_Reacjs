@@ -125,6 +125,16 @@
     }
 }
 
+.errorBtnAdd {
+    opacity: 0.5;
+
+    &:hover {
+        background-color: palegreen;
+        color: black;
+        cursor: auto;
+    }
+}
+
 .inner-dialog {
     display: flex;
     flex-direction: column-reverse;

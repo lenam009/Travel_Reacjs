@@ -135,7 +135,13 @@ function Form() {
                                 >
                                     Bạn chưa điền đủ thông tin !!!
                                 </span>
-                                <button type="submit" className={cx('btn-add')}>
+                                <button
+                                    type="submit"
+                                    className={cx(
+                                        'btn-add',
+                                        `${Object.keys(formik.errors).length !== 0 && 'errorBtnAdd'}`,
+                                    )}
+                                >
                                     Thêm
                                 </button>
                             </div>
