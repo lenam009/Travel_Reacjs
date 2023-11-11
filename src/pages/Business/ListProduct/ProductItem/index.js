@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { getIdCloseDialog } from '~/components/Redux/selector';
 import informationProduct from '~/components/Redux/FormSliceReducer/InformationProduct';
 import listProductSLiceReducer from '~/components/Redux/FormSliceReducer/ListProductSLiceReducer';
+import PropTypes from 'prop-types';
 
 import classNames from 'classnames/bind';
 import styles from './ProductItem.module.scss';
@@ -58,5 +59,11 @@ function ProductItem({ image = '', name = 'Tên địa điểm không rõ', desc
         </div>
     );
 }
+
+ProductItem.propTypes = {
+    image: PropTypes.string,
+    name: PropTypes.string,
+    desc: PropTypes.string,
+};
 
 export default ProductItem;
