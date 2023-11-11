@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import * as searchServices from '~/services/searchServices';
 import userApi from '~/api/userApi';
 
 const searchReducer = createSlice({
@@ -30,7 +29,6 @@ const searchReducer = createSlice({
 });
 
 const fetchSearchResults = createAsyncThunk('searchResult/fetchSearchResult', async (d) => {
-    // const data = await searchServices.search(d);
     const data = await userApi.getByName(d);
     return data;
 });

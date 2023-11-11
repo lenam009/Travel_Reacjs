@@ -8,18 +8,17 @@ import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { default as PopperWrapper } from '~/components/Popper/Wrapper';
 import AccountItem from '~/components/AccountItem';
-import { useDebounce } from '~/hooks';
 
 import { useDispatch, useSelector } from 'react-redux';
-import searchReducer, { fetchSearchResults } from '~/components/Redux/SearchSlideReducer/SearchReducer';
+import searchReducer from '~/components/Redux/SearchSlideReducer/SearchReducer';
 import { getLoadingSearchResult, getSearchResults } from '~/components/Redux/selector';
+import { SET_SEARCH_RESULTS_SAGA } from '~/components/Redux/ReduxSaga/searchSaga';
 
 const cx = classNames.bind(styles);
 
 function Search() {
-    const [searchValue, setSearchValue] = useState('');
-
     const [showResult, setShowResult] = useState(false);
+    const [searchValue, setSearchValue] = useState('');
     const inputRef = useRef();
 
     const dispatch = useDispatch();
@@ -27,27 +26,18 @@ function Search() {
     const loading = useSelector(getLoadingSearchResult);
     const searchResult = useSelector(getSearchResults);
 
-    const debouncedValue = useDebounce(searchValue, 500);
-
     useEffect(() => {
-        if (!debouncedValue.trim()) {
+        if (!searchValue.trim()) {
             dispatch(searchReducer.actions.setSearchResults([]));
             return;
         }
 
-        //// ..............Nên giữ lại để tham khảo...................
-        // const fetchApi = async () => {
-        //     setLoading(true);
-        //     const result = await searchServices.search(debouncedValue);
-        //     setSearchResult(result ?? []);
-        //     setLoading(false);
-        // };
-        // fetchApi();
-        //// ..........................................................
-
-        dispatch(fetchSearchResults(debouncedValue));
+        dispatch({
+            type: SET_SEARCH_RESULTS_SAGA,
+            payload: searchValue,
+        });
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [debouncedValue]);
+    }, [searchValue]);
 
     const handleClear = () => {
         setSearchValue('');
