@@ -10,3 +10,4 @@
 - Axios
 - Slick
 - Tippy
+- Formik, Yup
