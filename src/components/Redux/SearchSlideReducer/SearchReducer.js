@@ -6,10 +6,14 @@ const searchReducer = createSlice({
     initialState: {
         loading: false,
         searchResult: [],
+        searchValue: '',
     },
     reducers: {
         setSearchResults: (state, action) => {
             state.searchResult = action.payload;
+        },
+        setSearchValue: (state, action) => {
+            state.searchValue = action.payload;
         },
     },
 
@@ -37,4 +41,4 @@ export default searchReducer;
 
 export { fetchSearchResults };
 
-export const { setSearchResults } = searchReducer.actions;
+export const { setSearchResults, setSearchValue } = searchReducer.actions;

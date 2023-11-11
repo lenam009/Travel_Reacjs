@@ -10,21 +10,22 @@ import { default as PopperWrapper } from '~/components/Popper/Wrapper';
 import AccountItem from '~/components/AccountItem';
 
 import { useDispatch, useSelector } from 'react-redux';
-import searchReducer from '~/components/Redux/SearchSlideReducer/SearchReducer';
-import { getLoadingSearchResult, getSearchResults } from '~/components/Redux/selector';
-import { SET_SEARCH_RESULTS_SAGA } from '~/components/Redux/ReduxSaga/searchSaga';
+import searchReducer, { fetchSearchResults } from '~/components/Redux/SearchSlideReducer/SearchReducer';
+import { getLoadingSearchResult, getSearchResults, getSearchValue } from '~/components/Redux/selector';
+import { SET_DEBOUNCE_SEARCH_VALUE_SAGA } from '~/components/Redux/ReduxSaga/searchSaga';
 
 const cx = classNames.bind(styles);
 
 function Search() {
     const [showResult, setShowResult] = useState(false);
-    const [searchValue, setSearchValue] = useState('');
+    const [searchValueInput, setSearchValueInput] = useState('');
     const inputRef = useRef();
 
     const dispatch = useDispatch();
 
     const loading = useSelector(getLoadingSearchResult);
     const searchResult = useSelector(getSearchResults);
+    const searchValue = useSelector(getSearchValue);
 
     useEffect(() => {
         if (!searchValue.trim()) {
@@ -32,15 +33,12 @@ function Search() {
             return;
         }
 
-        dispatch({
-            type: SET_SEARCH_RESULTS_SAGA,
-            payload: searchValue,
-        });
+        dispatch(fetchSearchResults(searchValue));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchValue]);
 
     const handleClear = () => {
-        setSearchValue('');
+        dispatch(searchReducer.actions.setSearchValue(''));
         inputRef.current.focus();
     };
 
@@ -50,8 +48,12 @@ function Search() {
 
     const handleChange = (e) => {
         const value = e.target.value;
+        setSearchValueInput(value);
         if (!value.startsWith(' ')) {
-            setSearchValue(value);
+            dispatch({
+                type: SET_DEBOUNCE_SEARCH_VALUE_SAGA,
+                payload: value,
+            });
         }
     };
 
@@ -78,7 +80,7 @@ function Search() {
                     <input
                         onChange={handleChange}
                         onFocus={() => setShowResult(true)}
-                        value={searchValue}
+                        value={searchValueInput}
                         ref={inputRef}
                         className={cx('input-search')}
                         type="text"

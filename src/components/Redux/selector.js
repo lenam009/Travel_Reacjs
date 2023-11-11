@@ -6,4 +6,6 @@ export const getIdCloseDialog = (state) => state.informationProduct.idCloseDialo
 
 export const getLoadingSearchResult = (state) => state.searchReducer.loading;
 
+export const getSearchValue = (state) => state.searchReducer.searchValue;
+
 export const getSearchResults = (state) => state.searchReducer.searchResult;
