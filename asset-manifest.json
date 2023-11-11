@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Project/static/css/main.d0d6f618.css",
-    "main.js": "/Project/static/js/main.a7b7d6e8.js",
+    "main.css": "/Project/static/css/main.a4dec732.css",
+    "main.js": "/Project/static/js/main.f444e888.js",
     "static/js/787.fe00223f.chunk.js": "/Project/static/js/787.fe00223f.chunk.js",
     "static/media/doraemon.jpg": "/Project/static/media/doraemon.c13050913602f76e73e1.jpg",
     "static/media/TikTokFont-Semibold.woff2": "/Project/static/media/TikTokFont-Semibold.0a3262809350126554ad.woff2",
@@ -11,12 +11,12 @@
     "static/media/slick.ttf": "/Project/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/Project/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Project/index.html",
-    "main.d0d6f618.css.map": "/Project/static/css/main.d0d6f618.css.map",
-    "main.a7b7d6e8.js.map": "/Project/static/js/main.a7b7d6e8.js.map",
+    "main.a4dec732.css.map": "/Project/static/css/main.a4dec732.css.map",
+    "main.f444e888.js.map": "/Project/static/js/main.f444e888.js.map",
     "787.fe00223f.chunk.js.map": "/Project/static/js/787.fe00223f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d0d6f618.css",
-    "static/js/main.a7b7d6e8.js"
+    "static/css/main.a4dec732.css",
+    "static/js/main.f444e888.js"
   ]
 }
