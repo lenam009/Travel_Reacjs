@@ -46,7 +46,7 @@
 }
 
 .form-item {
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 }
 
 .name,
@@ -72,6 +72,12 @@
         border-color: #86b7fe;
         border-width: 4px;
     }
+}
+
+.errorMessage {
+    color: red;
+    padding-left: 5px;
+    font-size: 1.5rem;
 }
 
 .image {

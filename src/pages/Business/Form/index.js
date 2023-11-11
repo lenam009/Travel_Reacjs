@@ -5,11 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useRef, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { getName, getImage, getDesc } from '~/components/Redux/selector';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 import listProductSLiceReducer from '~/components/Redux/FormSliceReducer/ListProductSLiceReducer';
-import informationProduct from '~/components/Redux/FormSliceReducer/InformationProduct';
 import Messenger from '~/components/Messenger';
 
 const cx = classNames.bind(styles);
@@ -23,9 +22,45 @@ function Form() {
     const inputNameRef = useRef();
     const inputFormRef = useRef();
 
-    const name = useSelector(getName);
-    const image = useSelector(getImage);
-    const desc = useSelector(getDesc);
+    const handleSubmitForm = (value) => {
+        try {
+            const data = {
+                id: uuid(),
+                name: value.name,
+                image: value.image,
+                desc: value.desc,
+            };
+            dispatch(listProductSLiceReducer.actions.addProduct(data));
+            value.name = '';
+            value.image = '';
+            value.desc = '';
+            setDialogList((prev) => [...prev, true]);
+            inputNameRef.current.focus();
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            image: '',
+            desc: '',
+        },
+        validationSchema: Yup.object({
+            name: Yup.string()
+                .required('Tên địa điểm không được bỏ trống *')
+                .min(6, 'Tên địa điểm không được bé hơn 6 ký tự *'),
+            image: Yup.string().required('Đường dẫn hình ảnh không được bỏ trống *'),
+            desc: Yup.string().required('Mô tả không được bỏ trống *'),
+            //Tham khảo.............................................................
+            // email: Yup.string()
+            //     .required()
+            //     .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, 'Vui lòng nhập đúng định dạng Email'),
+            // confirmPass: Yup.string().oneOf([Yup.ref('password')], 'password not match'),
+        }),
+        onSubmit: handleSubmitForm,
+    });
 
     useEffect(() => {
         if (showForm) {
@@ -46,29 +81,6 @@ function Form() {
         setShowForm(false);
     };
 
-    const handleAddButtonClick = () => {
-        if (!name || !image || !desc) {
-            setDialogList((prev) => [...prev, false]);
-            return;
-        }
-        try {
-            const data = {
-                id: uuid(),
-                name,
-                image,
-                desc,
-            };
-            dispatch(listProductSLiceReducer.actions.addProduct(data));
-            dispatch(informationProduct.actions.setName(''));
-            dispatch(informationProduct.actions.setImage(''));
-            dispatch(informationProduct.actions.setDesc(''));
-            setDialogList((prev) => [...prev, true]);
-            inputNameRef.current.focus();
-        } catch (e) {
-            console.log(e);
-        }
-    };
-
     return (
         <div className={cx('wrapper')}>
             <div ref={inputFormRef} className={cx('wrapper-handle-formAdd')}>
@@ -76,29 +88,31 @@ function Form() {
                     <button onClick={handleCloseButtonClick} className={cx('btn-close')}>
                         <FontAwesomeIcon className={cx('icon-close')} icon={faXmark} />
                     </button>
-                    <form action="#">
+                    <form onSubmit={formik.handleSubmit}>
                         <div className={cx('form-item')}>
                             <label className={cx('name')} htmlFor="name">
                                 Tên địa điểm
                             </label>
                             <input
                                 ref={inputNameRef}
-                                value={name}
+                                value={formik.values.name}
                                 id="name"
                                 className={cx('input-text')}
-                                onChange={(e) => dispatch(informationProduct.actions.setName(e.target.value))}
+                                onChange={formik.handleChange}
                             />
+                            <p className={cx('errorMessage')}>{formik.errors.name}&nbsp;</p>
                         </div>
                         <div className={cx('form-item')}>
                             <label className={cx('image')} htmlFor="image">
                                 Đường dẫn hình ảnh
                             </label>
                             <input
-                                value={image}
+                                value={formik.values.image}
                                 id="image"
                                 className={cx('input-image')}
-                                onChange={(e) => dispatch(informationProduct.actions.setImage(e.target.value))}
+                                onChange={formik.handleChange}
                             />
+                            <p className={cx('errorMessage')}>{formik.errors.image}&nbsp;</p>
                         </div>
                         <div className={cx('form-item')}>
                             <label className={cx('desc')} htmlFor="desc">
@@ -108,9 +122,10 @@ function Form() {
                                 maxLength={250}
                                 id="desc"
                                 className={cx('input-desc')}
-                                onChange={(e) => dispatch(informationProduct.actions.setDesc(e.target.value))}
-                                value={desc}
+                                value={formik.values.desc}
+                                onChange={formik.handleChange}
                             ></textarea>
+                            <p className={cx('errorMessage')}>{formik.errors.desc}&nbsp;</p>
                         </div>
                         <div className={cx('form-item')}>
                             <div className={cx('form-btn')}>
@@ -120,7 +135,7 @@ function Form() {
                                 >
                                     Bạn chưa điền đủ thông tin !!!
                                 </span>
-                                <button onClick={handleAddButtonClick} className={cx('btn-add')}>
+                                <button type="submit" className={cx('btn-add')}>
                                     Thêm
                                 </button>
                             </div>

@@ -15,12 +15,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function ProductItem({
-    image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQzXUghZW4xvuu6OBUxj2hoHcy901KwUPLWA&usqp=CAU',
-    name = 'Tên địa điểm',
-    desc = 'Mô tả',
-    id = 0,
-}) {
+function ProductItem({ image = '', name = 'Tên địa điểm không rõ', desc = 'Mô tả không rõ', id = 0 }) {
     const [imageError, setImageError] = useState('');
     const getThisIdCloseDialog = useSelector(getIdCloseDialog);
 
