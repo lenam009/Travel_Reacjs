@@ -8,6 +8,6 @@
 ----- Các thư viện chính đã sử dụng:
 - Redux (redux toolkit, redux thunk, redux saga)
 - Axios
-- Slick
+- Carousel
 - Tippy
 - Formik, Yup
